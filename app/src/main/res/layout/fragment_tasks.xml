@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".TasksFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.tasks.TasksViewModel" />
@@ -18,9 +20,9 @@
             android:id="@+id/task_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter a task name"
             android:inputType="text"
-            android:text="@={viewModel.newTaskName}"
-            android:hint="Enter a task name" />
+            android:text="@={viewModel.newTaskName}" />
 
         <Button
             android:id="@+id/save_button"
@@ -30,11 +32,13 @@
             android:onClick="@{() -> viewModel.addTask()}"
             android:text="Save Task" />
 
-        <TextView
-            android:id="@+id/tasks"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasks_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.taskString}" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 </layout>
