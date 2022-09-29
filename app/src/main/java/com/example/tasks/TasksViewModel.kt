@@ -1,14 +1,15 @@
 package com.example.tasks
 
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 
 class TasksViewModel(val dao: TaskDao) : ViewModel() {
     var newTaskName = ""
-    
+
     val tasks = dao.getAll()
+    private val _navigateToTask = MutableLiveData<Long?>()
+    val navigateToTask: LiveData<Long?>
+        get() = _navigateToTask
 
     fun addTask() {
         viewModelScope.launch {
@@ -16,5 +17,13 @@ class TasksViewModel(val dao: TaskDao) : ViewModel() {
             task.taskName = newTaskName
             dao.insert(task)
         }
+    }
+
+    fun onTaskClicked(taskId: Long) {
+        _navigateToTask.value = taskId
+    }
+
+    fun onTaskNavigated() {
+        _navigateToTask.value = null
     }
 }
