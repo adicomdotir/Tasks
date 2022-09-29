@@ -1,11 +1,11 @@
-package com.example.tasks
+package com.example.tasks.view.adpater
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasks.databinding.TaskItemBinding
+import com.example.tasks.model.Task
 
 class TaskItemAdapter(val clickListener: (taskId: Long) -> Unit) :
     ListAdapter<Task, TaskItemAdapter.TaskItemViewHolder>(TaskDiffItemCallback()) {

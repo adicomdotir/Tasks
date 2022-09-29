@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/tasksFragment"
-        android:name="com.example.tasks.TasksFragment"
+        android:name="com.example.tasks.view.TasksFragment"
         android:label="fragment_tasks"
         tools:layout="@layout/fragment_tasks" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/editTaskFragment"
-        android:name="com.example.tasks.EditTaskFragment"
+        android:name="com.example.tasks.view.EditTaskFragment"
         android:label="fragment_edit_task"
         tools:layout="@layout/fragment_edit_task" >
         <action

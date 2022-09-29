@@ -1,7 +1,8 @@
-package com.example.tasks
+package com.example.tasks.view_model
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.tasks.database.TaskDao
 import java.lang.IllegalArgumentException
 
 class EditTaskViewModelFactory(private val taskId: Long, private val dao: TaskDao) :

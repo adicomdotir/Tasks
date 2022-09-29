@@ -1,14 +1,17 @@
-package com.example.tasks
+package com.example.tasks.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.tasks.view_model.EditTaskViewModel
+import com.example.tasks.view_model.EditTaskViewModelFactory
+import com.example.tasks.R
+import com.example.tasks.database.TaskDatabase
 import com.example.tasks.databinding.FragmentEditTaskBinding
 
 class EditTaskFragment : Fragment() {

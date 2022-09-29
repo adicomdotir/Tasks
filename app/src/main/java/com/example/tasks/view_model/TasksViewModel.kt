@@ -1,6 +1,8 @@
-package com.example.tasks
+package com.example.tasks.view_model
 
 import androidx.lifecycle.*
+import com.example.tasks.database.TaskDao
+import com.example.tasks.model.Task
 import kotlinx.coroutines.launch
 
 class TasksViewModel(val dao: TaskDao) : ViewModel() {

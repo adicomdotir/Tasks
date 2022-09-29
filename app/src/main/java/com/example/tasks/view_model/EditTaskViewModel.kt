@@ -1,6 +1,7 @@
-package com.example.tasks
+package com.example.tasks.view_model
 
 import androidx.lifecycle.*
+import com.example.tasks.database.TaskDao
 import kotlinx.coroutines.launch
 
 class EditTaskViewModel(taskId: Long, val dao: TaskDao) : ViewModel() {

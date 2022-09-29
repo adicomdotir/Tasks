@@ -1,4 +1,4 @@
-package com.example.tasks
+package com.example.tasks.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.tasks.database.TaskDatabase
+import com.example.tasks.view_model.TasksViewModel
+import com.example.tasks.view_model.TasksViewModelFactory
 import com.example.tasks.databinding.FragmentTasksBinding
+import com.example.tasks.view.adpater.TaskItemAdapter
 
 class TasksFragment : Fragment() {
     private var _binding: FragmentTasksBinding? = null
@@ -42,7 +46,9 @@ class TasksFragment : Fragment() {
 
         viewModel.navigateToTask.observe(viewLifecycleOwner, Observer { taskId ->
             taskId?.let {
-                val action = TasksFragmentDirections.actionTasksFragmentToEditTaskFragment(taskId)
+                val action = TasksFragmentDirections.actionTasksFragmentToEditTaskFragment(
+                        taskId
+                    )
                 this.findNavController().navigate(action)
                 viewModel.onTaskNavigated()
             }

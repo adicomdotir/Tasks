@@ -5,7 +5,7 @@
     <data>
         <variable
             name="task"
-            type="com.example.tasks.Task" />
+            type="com.example.tasks.model.Task" />
     </data>
 
     <androidx.cardview.widget.CardView
