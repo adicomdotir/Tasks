@@ -2,7 +2,9 @@ package com.example.tasks
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasks.databinding.FragmentTasksBinding.inflate
 
@@ -24,15 +26,19 @@ class TaskItemAdapter : RecyclerView.Adapter<TaskItemAdapter.TaskItemViewHolder>
 
     override fun getItemCount(): Int = data.size
 
-    class TaskItemViewHolder(val rootView: TextView) : RecyclerView.ViewHolder(rootView) {
+    class TaskItemViewHolder(val rootView: CardView) : RecyclerView.ViewHolder(rootView) {
+        val taskName = rootView.findViewById<TextView>(R.id.task_name)
+        val taskDone = rootView.findViewById<CheckBox>(R.id.task_done)
+
         fun bind(item: Task) {
-            rootView.text = item.taskName
+            taskName.text = item.taskName
+            taskDone.isChecked = item.taskDone
         }
 
         companion object {
             fun inflateFrom(parent: ViewGroup): TaskItemViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.task_item, parent, false) as TextView
+                val view = layoutInflater.inflate(R.layout.task_item, parent, false) as CardView
                 return TaskItemViewHolder(view)
             }
         }
